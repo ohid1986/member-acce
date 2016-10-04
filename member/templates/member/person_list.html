@@ -1,0 +1,92 @@
+{% extends parent_template|default:"member/base_member.html" %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+
+    {% if perms.member.add_person %}
+
+        <div class="page-header">
+            <div class="row">
+            <div class="col-sm-3 ">
+                   <a class="btn btn-primary" href="{% url 'member:all-member' %}">View All Member</a>
+
+            </div>
+
+            <a class="btn btn-primary pull-right" href="{% url 'member:person-create' %}"><i class="icon-plus icon-white"></i> Add New Member</a>
+                </div>
+        </div>
+    {% endif %}
+
+    <div class="container-fluid">
+        <div class="row ">
+
+        <div style="overflow-x:auto;">
+
+        <div class="col-sm-8 col-md-9">
+            <h3>Members List</h3>
+
+        {% if persons %}
+            <table>
+
+            <tr>
+                <th>sl.</th>
+                <th>Name and Position</th>
+                <th>Photo</th>
+                <th>Organisation & Address</th>
+                <th>Contact</th>
+            </tr>
+
+
+
+            {% for person in persons %}
+            <tr>
+                <td>{{forloop.counter}}.</td>
+                <td>{{person.name}}<br>
+                {{person.present_position}}</td>
+
+                <td><a href="{% url 'member:member-detail' person.id%}">
+                <img src="{{ person.photo_url|default_if_none:'#'}}" class="img-responsive">
+                </a></td>
+
+                <td>
+                {{person.organization}}<br>
+                {{person.address}}
+                </td>
+
+                <td>
+                 {{person.tele_land}}<br>
+                 {{person.tele_cell}}<br>
+                 {{person.email}}
+                </td>
+
+                {% if user.pk == person.user.pk or user.is_superuser  %}
+                <td>
+                    <a href="{% url 'member:person-update' person.id%}">
+                <button type="button" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-pencil">Update</span>
+                </button></a>
+                </td>
+
+                {% endif %}
+
+                <td><a href="{% url 'member:person-delete' person.id%}">
+                <button type="submit" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-trash">Delete</span>
+                </button>
+                </a></td>
+
+            </tr>
+
+            {% endfor %}
+            </table>
+        {% else %}
+            <p>No person in the list.</p>
+        {% endif %}
+        </div>
+            </div>
+    </div>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,26 @@
+
+{% block right_top_block %}
+
+<div class="right_top_block ">
+    <h4 align=center>Latest News</h4>
+    <ul>
+        {% for news in news_list %}
+
+
+        <li><h4>{{ news.title }}</h4>
+            {{ news.news|truncatechars:200  }}
+            <p><a class="btn btn-primary btn-xs" href="{% url 'member:news-detail' news.pk %}">See Datails &raquo;</a></p>
+
+        </li>
+
+
+        {% empty %}
+           No recent news
+        {% endfor %}
+    </ul>
+</div>
+
+
+
+{% endblock %}
+

@@ -1,0 +1,39 @@
+{% extends parent_template|default:"member/base_member.html" %}
+
+{% block body %}
+
+<div class="container-fluid songs-container">
+
+    <div class="row-content">
+        <div class="col-sm-8 col-md-9">
+
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" class="active"><a href="{% url 'member:news-list' %}">View All News</a></li>
+            </ul>
+
+        </div>
+
+
+        <!-- Left Album Info -->
+        <div class="col-sm-8 col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h4>{{news.title}}</h4>
+                    <p>{{news.news}}</p>
+                    See Documents:
+                    <a href="{% url 'member:news-detail' news.id %}">
+                        {% if news.docfile %}
+                            <a href="{{ news.docfile.url }}">{{ news.docfile.name}}</a>
+                        {% else %}
+                            <h3>No documents to display</h3>
+                        {% endif %}
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+{% endblock %}

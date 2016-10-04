@@ -1,0 +1,378 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body{
+    padding:50px 0px 0px 0px;
+    z-index:0;
+
+}
+
+.row-header{
+    margin:0px auto;
+    padding:0px auto;
+}
+
+.row-content {
+    margin:0px auto;
+    padding: 50px 0px 50px 0px;
+    min-height:300px;
+}
+
+.left_top_block {
+    margin-bottom:10px;
+    padding: 5px;
+    min-height: 175px;
+    width: 100%;
+    display: block;
+    background: white;
+    border: 1px solid;
+    border-color: #e5e5e5 #dbdbdb #d2d2d2;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+    -moz-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+}
+
+
+
+
+.right_top_block  {
+    margin-bottom:10px;
+    padding: 5px;
+    min-height: 175px;
+    width: 100%;
+    display: block;
+    background: white;
+    border: 1px solid;
+    border-color: #e5e5e5 #dbdbdb #d2d2d2;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+    -moz-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+
+}
+
+.row-border{
+    padding:5px;
+}
+
+
+footer {
+    background-color: #AfAfAf;
+    padding:5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 160px;
+    float:left;
+    min-width:100%;
+}
+
+
+.sidebar {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+
+address{
+    font-size:80%;
+    margin:0px;
+    color:#0f0f0f;
+}
+
+
+
+
+.navbar-inverse {
+     background: #303F9F;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fff;
+    background: #1A237E;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+ .navbar-inverse .navbar-nav > .open > a:hover,
+ .navbar-inverse .navbar-nav > .open > a:focus {
+    color: #fff;
+    background: #1A237E;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu> li> a,
+.navbar-inverse .navbar-nav .open .dropdown-menu {
+    background-color: #303F9F;
+    color:#eeeeee;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu> li> a:hover {
+    color:#000000;
+}
+
+.navbar {
+    display: inline-block;
+    max-width: 100%;
+    overflow: visible;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar-brand>img {
+   max-height: 50px;
+   width: auto;
+   margin: 0 auto;
+   margin-top: -13px;
+   padding-bottom:4px;
+
+
+}
+
+h2, h3 {
+    font-weight: 700;
+}
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+.affix {
+    top:100px;
+}
+
+.carousel {
+    background:#1A237E;
+
+}
+.carousel .item {
+  height: 300px;
+
+}
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 300px;
+}
+#carouselButtons {
+    right:0px;
+    position: absolute;
+    bottom: 0px;
+}
+.errorlist {
+    list-style: none;
+    color: #B94A48;
+    margin: 0px 0px 9px 0px;
+    padding: 0px;
+}
+
+
+.wmd-panel {
+    margin-right:0px !important;
+    margin-left:0px !important;
+}
+
+.navbar-brand {
+    margin-left: -30px !important;
+    margin-right:5px;
+}
+
+
+@media (max-width: 790px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+}
+td, th {
+    padding: 0.5rem;
+
+  border: 1px solid #ccc;
+  text-align: justify;
+}
+th {
+  background: lightblue;
+  border-color: white;
+}
+
+.messages .success {
+	width: 100%;
+	color: #FFF;
+	background-color: #33C3F0;
+	border-color: #33C3F0; }
+}
+
+.messages .error {
+	width: 100%;
+	color: #FFF;
+	background-color: #dd1144;
+	border-color: #dd1144; }
+}
+
+
+
+.pagination ul {
+	width: 100%;
+	margin: 0;
+	padding: 1em 0;
+	list-style-type: none;
+}
+
+.pagination li {
+	display: inline-block;
+	padding: 0;
+	margin: 0 1em;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 1.2rem;
+	letter-spacing: .10rem;
+}
+
+.pagination {
+	margin: 0;
+	padding: 1em 0;
+	list-style-type: none;
+	text-align: center;
+
+}
+
+body>div>header {
+	text-align: center;;
+}
+
+header h1 {
+	display: inline-block;
+	font-weight: normal;
+	font-style: normal;
+	width: 100%;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.center {
+	text-align: center;
+}
+
+
+.helptext {
+	display: block;
+	padding: 0;
+	margin: -1em 0 2em;
+	color: #555;
+}
+
+
+
+
+.top-bar {
+  padding: 0px;
+  background:  #77b300;
+  line-height: 20px;
+  width:100%
+}
+
+.banner {
+    text-align: center;
+}
+
+
+
+.search {
+    padding-top:5px;
+}
+
+.container-photo {
+	width: 100%;
+	margin: 30px auto;
+	overflow: hidden;
+}
+
+.photo img {
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+
+
+	border-top-left-radius:     1em 1em;
+    border-top-right-radius:    1em 1em;
+    border-bottom-right-radius: 1em 1em;
+    border-bottom-left-radius:  1em 1em;
+
+    max-height: 200px;
+    min-height: 200px;
+    width:250px;
+    float: left;
+	margin:  2% 2% 50px 2%;
+	color: #797478;
+
+}
+
+@media only screen and (max-width : 940px),
+only screen and (max-device-width : 940px){
+	.photo {width: 100%;}
+}
+
+@media only screen and (max-width : 720px),
+only screen and (max-device-width : 720px){
+	.photo {width: 100%;}
+}
+
+@media only screen and (max-width : 530px),
+only screen and (max-device-width : 530px){
+	.photo {width: 100%;}
+
+}
+
+@media only screen and (max-width : 320px),
+only screen and (max-device-width : 320px){
+	.photo {width: 100%;}
+	.photo img {width: 100%;}
+	.photo h3 {font-size: 18px;}
+	.photo p, {font-size: 18px;}
+}
+
+
+
+
+
+

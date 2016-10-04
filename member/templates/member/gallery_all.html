@@ -1,0 +1,45 @@
+{% extends parent_template|default:"member/base_member.html" %}
+
+{% block title %}Gallery{% endblock title %}
+
+{% block body %}
+
+<div class="page-header">
+    <a class="btn btn-primary pull-right" href="{% url 'member:event-list' %}"><i class="icon-plus icon-white"></i> Go back to event list</a>
+    <h1>Gallery</h1>
+</div>
+<div class="container-photo">
+<div class="row">
+<div class="photo">
+
+         {% for object in object_list %}
+
+            <div class="col-xs-12">
+
+        {{object.event }}
+        </div>
+
+            <div>
+
+                <p>
+                    {% if object.image %}
+                     <img src="{{ object.image.url}}" class="img-responsive" >
+                {% endif %}
+                </p>
+
+            </div>
+
+        {% endfor %}
+    </div>
+ </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

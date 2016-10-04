@@ -1,0 +1,51 @@
+{% extends parent_template|default:"member/base_member.html" %}
+
+{% block title %}{{ object.name }}{% endblock title %}
+
+{% block body %}
+
+<div class="page-header">
+    <ol class="breadcrumb">
+      <li><a href="{% url 'member:event-list' %}">Event</a></li>
+      <li class="active">{{ object.name }}</li>
+    </ol>
+
+    {% if request.user.is_authenticated %}
+    <a class="btn btn-primary pull-right" href="{% url 'member:update_event_and_gallery' object.pk %}"><i class="icon-edit icon-white"></i> Update Event and Gallery</a>
+     {% endif %}
+
+    <h2>Event Detail</h2>
+</div>
+
+
+
+<div class="container-photo">
+    <div class="row">
+
+
+         <div class="col-xs-12">
+            <p>Event Name: {{ object.name }}</p>
+            <p>Event Description: {{object.description }}</p>
+        </div>
+            <H3>Event Gallery</H3>
+        <div class="photo">
+        {% for gallery in event.gallery_set.all %}
+
+            <div>
+                <p>
+                    {% if gallery.image %}
+                     <img src="{{ gallery.image.url}}" class="img-responsive" >
+                {% endif %}
+                </p>
+
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+<div class="page-footer">
+
+</div>
+{% endblock  %}
+

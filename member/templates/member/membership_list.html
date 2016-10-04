@@ -1,0 +1,27 @@
+{% extends parent_template|default:"member/base_member.html" %}
+
+{% block body %}
+
+        <div class="page-header">
+           <ol class="breadcrumb">
+              <li class="">Membership</li>
+            </ol>
+            <h1>Membership Category</h1>
+        </div>
+
+    <div class="container-fluid">
+        <div class="row">
+
+
+
+        <div class="col-sm-8 col-md-9">
+
+    {% for entry in entries %}
+            <p>{{entry.category}}.</p>
+     {% endfor %}
+
+    </div>
+    </div>
+    </div>
+
+{% endblock %}

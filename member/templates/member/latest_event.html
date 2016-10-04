@@ -1,0 +1,36 @@
+{% block left_top_block %}
+
+
+<div class="left_top_block ">
+
+
+    <h4 align=center>Latest Event</h4>
+
+    {% for gallery in gallery_list %}
+
+
+            <div class="col-xs-5 left-img">
+
+            {% if gallery.image %}
+                 <img src="{{ gallery.image.url}}" height=150px; width=80% class="img-responsive">
+            {% endif %}
+
+            </div>
+                <h4>{{ gallery.event.name }}</h4>
+                <p>{{ gallery.event.description|truncatechars:100 }}</p>
+
+            <div >
+                <p><a class="btn btn-primary btn-xs" href="{% url 'member:event-detail' gallery.event.pk %}">See Datails &raquo;</a></p>
+            </div>
+
+    {% empty %}
+       No recent event
+    {% endfor %}
+
+</div>
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,39 @@
+{% extends parent_template|default:"member/base_member.html" %}
+
+{% block body %}
+
+
+<div class="container-fluid ">
+    <div class="row">
+        <!-- Left Album Info -->
+        <div class="col-sm-6 col-md-4">
+            <div class="panel panel-default">
+                <p class="panel-body">
+                <p>Name: {{person.name}}</p>
+                 <p>Present Position: {{person.present_position}}</p>
+                 <p>Organisation: {{person.organization}}</p>
+                 <p>Address: {{person.address}}</p>
+                 <p>Land Telephone: {{person.tele_land}}</p>
+                 <p>Cell Phone: {{person.tele_cell}}</p>
+                 <p>Email: {{person.user}}</p>
+
+                 <p>Website: {{person.website}}</p>
+                 <p>Date of Birth: {{person.birth_date}}</p>
+                 <p>Passing Year: {{person.passing_year}}</p>
+                 <p>Category: {{person.category}}</p>
+                 <p>Member from: {{person.member_since}}</p>
+                <p>Photo :
+                        {% if person.photo %}
+                            <img src="{{ person.photo.url }}" class="img-responsive">
+                        {% else %}
+                            <h3>No image to display</h3>
+                        {% endif %}
+                  </p>
+
+               </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends parent_template|default:"member/base_member.html" %}
+
+{% block title %}Gallery{% endblock title %}
+
+{% block body %}
+
+<div class="page-header">
+    <ol class="breadcrumb">
+      <li class="active">Gallery</li>
+    </ol>
+    <a class="btn btn-primary pull-center" href="{% url 'member:event-gallery' %}"><i class="icon-plus icon-white"></i> View All </a>
+    {% if request.user.is_authenticated %}
+    <a class="btn btn-primary pull-right" href="{% url 'member:create_event_and_gallery' %}"><i class="icon-plus icon-white"></i> Add Event and Photo</a>
+   {% endif %}
+    <h1>Gallery</h1>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>Photo</th>
+        <th>Event</th>
+    </tr>
+    {% for object in object_list %}
+    <tr>
+        <td><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></td>
+        <td><a href="{{ object.event.get_absolute_url }}">{{ object.event }}</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends parent_template|default:"member/base_member.html" %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row-content">
+
+            <div class="col-sm-8 col-md-9">
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+
+                {% if request.user.is_authenticated %}
+                <li role="presentation" class="active"><a href="{% url 'member:news-create' %}">Create News</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+
+
+    <div class="col-sm-8 col-md-9">
+        <h3>News</h3>
+
+            {% if news_list %}
+
+                    {% for news in news_list %}
+                        <h4>{{news.title}}</h4>
+                        <p>{{news.news}}</p>
+                       {% if news.docfile %}
+                        See Details:
+                       <a href="{{ news.docfile.url }}">{{ news.docfile.name}}</a>
+                        {% endif %}
+                        <a href="{% url 'member:news-detail' news.id%}">
+                            <button type="button" class="btn btn-primary btn-sm">
+                                <span class=""></span>Detail
+                            </button>
+                        </a>
+                        <a href="{% url 'member:news-delete' news.id%}">
+                        <button type="submit" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-trash">Delete</span>
+                        </button>
+                        </a>
+                    {% endfor %}
+
+            {% else %}
+                <p>No documents.</p>
+            {% endif %}
+
+
+        </div>
+    </div>
+    </div>
+{% endblock %}

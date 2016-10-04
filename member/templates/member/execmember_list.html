@@ -1,0 +1,59 @@
+{% extends parent_template|default:"member/base_member.html" %}
+
+{% block body %}
+
+    <div class="page-header">
+        {% if perms.member.add_exec_member %}
+            <a class="btn btn-primary pull-right" href="{% url 'member:execomember-create' %}"><i class="icon-plus icon-white"></i> Add New Executive Member</a>
+            {% endif %}
+        <h1>Executive Members List</h1>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+
+    <div class="col-sm-8 col-md-9">
+
+     {% if persons %}
+
+    <table>
+        <tr>
+            <th>sl.</th>
+            <th>Name and Position</th>
+            <th>Photo</th>
+            <th>Member Period</th>
+            <th>Active</th>
+            <th>Contact</th>
+        </tr>
+        {% for exec in members %}
+        <tr>
+            <td>{{forloop.counter}}.</td>
+            <td>{{exec.name}}<br>
+            {{exec.committee_position}}
+            </td>
+            <td><a href="{% url 'member:person-list'  %}">
+            <img src="{{ exec.name.photo_url|default_if_none:'#'}}" class="img-responsive">
+                </a></td>
+            <td>
+            {{exec.member_start_date }}<br>
+           {{exec.member_end_date}}
+            </td>
+            <td>{{exec.is_active|yesno:"Active,Expired"}}</td>
+                <td>{{ exec.name.email }}
+                    {{ exec.name.tele_land }}
+                    {{ exec.name.tele_cell }}
+
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    {% else %}
+        <p>No member in the list.</p>
+    {% endif %}
+    </div>
+    </div>
+</div>
+{% endblock %}
+
+

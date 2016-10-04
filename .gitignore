@@ -1,0 +1,10 @@
+*.pyc
+db.sqlite3
+projects
+__pycache__
+bash.txt
+bash_profile
+settings_old.py
+dev.py
+
+.DS_Store

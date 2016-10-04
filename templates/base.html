@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+
+
+{% load member_template_tags %}
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ {% block title_tag %}<title>{% block title %}{% if page.title %}{{ page.title }}{% endif %}{% endblock %}</title>{% endblock %}
+
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+    <link href="{% static 'site/css/jquery-ui.css' %}" rel="stylesheet">
+    <link href="{% static 'site/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'site/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link href="{% static 'site/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'site/css/bootstrap-social.css' %}" rel="stylesheet">
+    <link href="{% static 'site/css/mystyle.css' %}" rel="stylesheet">
+
+
+    <!--<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+    <!--<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">-->
+    <!--<link href="{% static './css/bootstrap-social.css' %}" rel="stylesheet">-->
+    <!--<link href="{% static './css/mystyle.css' %}" rel="stylesheet">-->
+
+
+
+
+      {% block head_extra %}
+
+        {% endblock head_extra %}
+
+
+  </head>
+
+  <body>
+
+    {% include 'navbar.html' %}
+
+    {% if messages %}
+        <div class="row">
+          <div class="twelve columns">
+            <ul class="messages">
+              {% for message in messages %}
+                {% if message.tags %}
+                  <li class="{{ message.tags }}">
+                {% else %}
+                  <li>
+                {% endif %}
+                {{ message }}</li>
+              {% endfor %}
+        </ul></div></div>
+      {% endif %}
+
+    <div class="container">
+    <div class="row">
+                <!--/span-->
+
+
+
+            <div class="col-sm-3 col-md-2 sidebar">
+            {% block sidebar_block %}
+                {% entry_history %}
+                {% endblock %}
+            </div>
+
+            <div class="col-sm-9 offset-sm-3 col-md-10 offset-sm-2 main">
+             {% block body %}{% endblock %}
+                <div class="content"><br><br><br><br><br></div>
+
+            </div>
+
+      </div>
+    </div>
+        <div class="container-fluid">
+        <div class="row">
+            <div class="content"><br><br><br><br><br></div>
+            </div>
+    </div>
+
+
+
+   <footer class="row-footer">
+        <div class="container-fluid">
+            <div class="row">
+                            <div class="col-xs-12">
+                <div class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'member:home' %}">Home</a></li>
+                        <li><a href="{% url 'about_site' %}">About</a></li>
+                        <li><a href="{% url 'member:event-gallery' %}">Gallery</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+		              APCE, Carzon Hall<br>
+		              Dhaka, Bangladesh<br>
+		              <i class="fa fa-phone" id="telephone"></i>: +8802 1234 5678<br>
+		              <i class="fa fa-fax"></i>: +8802 8765 4321<br>
+		              <i class="fa fa-envelope"></i>: <a href="mailto:masudpol@gmail.com">apce-alumni</a>
+		           </address>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="nav navbar-nav" style="padding: 40px 10px;">
+                        <a class="btn btn-social-icon btn-google-plus" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+                        <a class="btn btn-social-icon btn-youtube" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
+                        <a class="btn btn-social-icon" href="mailto:masudpol@gmail.com"><i class="fa fa-envelope-o"></i></a>
+                    </div>
+                </div>
+                <!--<div class="col-xs-12">-->
+                    <!--<p style="padding:10px;"></p>-->
+
+                <!--</div>-->
+
+            </div></div>
+            <p align=center>Design & Developed by: Md. Ohiduzzaman, © Copyright 2016 Applied Chemistry and Chemical Engineering Department Alumni</p>
+        </div>
+
+    </footer>
+
+        {% block bottom_script %}
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
+        <script src="{% static 'site/js/jquery-1.12.4.js' %}"></script>
+        <script src="{% static 'site/js/jquery-ui.js' %}"></script>
+        <script src="{% static 'site/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'site/js/photo.js' %}"></script>
+
+        <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+        <!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+
+
+
+         <script type="text/html" id="gallery-template">
+            <div id="gallery-__prefix__">
+                {{ formset.empty_form }}
+            </div>
+        </script>
+
+        <!-- Le javascript
+        ================================================== -->
+
+    {% endblock bottom_script %}
+
+
+  </body>
+</html>
+
